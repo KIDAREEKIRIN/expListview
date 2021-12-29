@@ -3,7 +3,9 @@ package com.personal.explistview;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -30,6 +32,17 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(listAdapter);
 
         //That's All just Run your App.
+
+        listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+
+                String selected = listAdapter.getChild(groupPosition,childPosition).toString();
+                Toast.makeText(getApplicationContext(), "Selected :" +selected, Toast.LENGTH_SHORT).show();
+
+                return true;
+            }
+        });
     }
 
     private void intializeData() {

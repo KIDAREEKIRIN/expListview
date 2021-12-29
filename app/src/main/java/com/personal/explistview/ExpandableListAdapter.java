@@ -69,6 +69,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         TextView lv_list_header = view.findViewById(R.id.lv_list_group);
         lv_list_header.setTypeface(null, Typeface.BOLD);
         lv_list_header.setText(headerTitle);
+
         return view;
     }
 
@@ -84,6 +85,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
-        return false;
+        return true;
     }
 }
